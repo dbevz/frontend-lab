@@ -12,7 +12,8 @@
         { id: 3, name: 'Irina', surname: 'Plushkina' }
     ];
 
-
+    // Решение:
+    const fullNames = users.map((item) => item.name + " " + item.surname);
 }
 
 /*
@@ -26,9 +27,11 @@
         { id: 1, age: 21, name: 'Vasya', surname: 'Vasiliev' },
         { id: 2, age: 28, name: 'Ivan', surname: 'Ivanov' },
         { id: 3, age: 18, name: 'Irina', surname: 'Plushkina' }
+
     ];
-
-
+    
+    // Решение:
+    const oldUsers = users.filter(item => item.age > 18);
 }
 
 /*
@@ -60,7 +63,8 @@
         amount: 245
     }];
 
-
+    const avgAmount = orders.reduce(((summ, item) => summ + item.amount), 0) / orders.length;
+    console.log(avgAmount);
 }
 
 
@@ -92,5 +96,17 @@
         interests: ['computers', 'food', 'math']
     }];
 
+    const result= {};
 
+    users.forEach((item, i) => {
+        item.interests.forEach((elem) => {
+            if (elem in result) {
+                result[elem] = result[elem] + 1;
+            } else {
+                result[elem] = 1;                
+            }
+        });
+    });
+
+    console.log(result);
 }
